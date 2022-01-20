@@ -1,5 +1,6 @@
 from typing import List
 
+
 # https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/
 def smallerNumbersThanCurrent(nums: List[int]) -> List[int]:
     res = [0 for _ in range(len(nums))]
@@ -10,6 +11,7 @@ def smallerNumbersThanCurrent(nums: List[int]) -> List[int]:
                 res[i] += 1
 
     return res
+
 
 # https://www.hackerrank.com/challenges/grading/problem
 def gradingStudents(grades):
@@ -96,6 +98,35 @@ def sortSentence(s: str) -> str:
         sentence.append(content[i + 1])
 
     return " ".join(sentence)
+
+
+# https://leetcode.com/problems/sort-colors/
+def sortColors(nums: List[int]) -> None:
+    left = 0
+
+    for i in range(0, len(nums)):
+        if nums[i] == 0:
+            nums[i], nums[left] = nums[left], nums[i]
+            left += 1
+
+    right = len(nums) - 1
+
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] == 2:
+            nums[i], nums[right] = nums[right], nums[i]
+            right -= 1
+
+
+# https://leetcode.com/problems/k-closest-points-to-origin/
+def kClosest(points: List[List[int]], k: int) -> List[List[int]]:
+    distances = []
+    for point in points:
+        x = point[0]
+        y = point[1]
+        distances.append([x * x + y * y, [x, y]])
+
+    distances = sorted(distances, key=lambda x: x[0])[0:k]
+    return [distance[1] for distance in distances]
 
 
 print(sortSentence("is2 sentence4 This1 a3"))
