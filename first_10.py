@@ -87,17 +87,13 @@ def targetIndices(nums: List[int], target: int) -> List[int]:
 
 
 # https://leetcode.com/problems/sorting-the-sentence/
-def sortSentence(s: str) -> str:
+def sortSentence(self, s: str) -> str:
     words = s.split(' ')
-    content = {}
+    content = ["" for _ in range(len(words))]
     for word in words:
-        content[int(word[len(word) - 1])] = word[0: len(word) - 1]
+        content[int(word[len(word) - 1]) - 1] = word[0: len(word) - 1]
 
-    sentence = []
-    for i in range(len(words)):
-        sentence.append(content[i + 1])
-
-    return " ".join(sentence)
+    return " ".join(content)
 
 
 # https://leetcode.com/problems/sort-colors/
