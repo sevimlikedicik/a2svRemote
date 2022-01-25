@@ -33,6 +33,6 @@ def merge_sort(arr, left, right):
     return
 
 
-test_arr = [2, 3, 1, 5, 4, 9, 1, -1, 2, 3]
+test_arr = [2, 3, 1, 5, 4, 9, 1, -1, 2, 3, 123, 123, 12, 3, 12, 2, 1, 2, 3, 2]
 merge_sort(test_arr, 0, len(test_arr) - 1)
 print(test_arr)
