@@ -7,8 +7,8 @@ def solution():
     n = int(input())
 
     for _ in range(n):
-        num = int(input())
-        print(-1 if num % 2 == 1 else f"{num // 2} {num // 2} 0")
+        n, m = [int(num) for num in input().split(' ')]
+        print(min(min(n, m), (n+m) // 4))
 
 
 solution()
